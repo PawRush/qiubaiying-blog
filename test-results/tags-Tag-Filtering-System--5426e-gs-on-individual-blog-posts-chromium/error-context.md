@@ -1,0 +1,671 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - img "Code Guide logo" [ref=e4]
+      - heading "Code Guide" [level=1] [ref=e5]
+      - paragraph [ref=e6]: Standards for developing consistent, flexible, and sustainable HTML and CSS.
+      - paragraph [ref=e7]:
+        - text: Created by
+        - link "@mdo" [ref=e8] [cursor=pointer]:
+          - /url: https://markdotto.com
+        - text: · v4.0.0 ·
+        - link "GitHub repo" [ref=e9] [cursor=pointer]:
+          - /url: https://github.com/mdo/code-guide/
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - link "ads via Carbon" [ref=e13] [cursor=pointer]:
+            - /url: https://srv.carbonads.net/ads/click/x/GTND427NCW7IC5QMF6YLYKQUCYBDE27ICVBD4Z3JCASDV5Q7F67DK23KC6YIV277CWBIVKJJCEAILK37C67D523UHEYI52JMCKYIVK3ECTNCYBZ52K
+            - img "ads via Carbon" [ref=e14]
+          - link "Get the APM insights you need without the enterprise price tag. Built for dev teams, not Fortune 500s." [ref=e15] [cursor=pointer]:
+            - /url: https://srv.carbonads.net/ads/click/x/GTND427NCW7IC5QMF6YLYKQUCYBDE27ICVBD4Z3JCASDV5Q7F67DK23KC6YIV277CWBIVKJJCEAILK37C67D523UHEYI52JMCKYIVK3ECTNCYBZ52K
+        - link "ads via Carbon" [ref=e16] [cursor=pointer]:
+          - /url: http://carbonads.net/?utm_source=codeguide&utm_medium=ad_via_link&utm_campaign=in_unit&utm_term=carbon
+  - main [ref=e17]:
+    - heading "Table of contents" [level=2] [ref=e18]
+    - generic [ref=e19]:
+      - heading "HTML" [level=3] [ref=e20]:
+        - link "HTML" [ref=e21] [cursor=pointer]:
+          - /url: "#html"
+      - list [ref=e22]:
+        - listitem [ref=e23]:
+          - link "HTML syntax" [ref=e24] [cursor=pointer]:
+            - /url: "#html-syntax"
+        - listitem [ref=e25]:
+          - link "HTML5 doctype" [ref=e26] [cursor=pointer]:
+            - /url: "#html5-doctype"
+        - listitem [ref=e27]:
+          - link "Language attribute" [ref=e28] [cursor=pointer]:
+            - /url: "#language-attribute"
+        - listitem [ref=e29]:
+          - link "IE compatibility mode" [ref=e30] [cursor=pointer]:
+            - /url: "#ie-compatibility-mode"
+        - listitem [ref=e31]:
+          - link "Character encoding" [ref=e32] [cursor=pointer]:
+            - /url: "#character-encoding"
+        - listitem [ref=e33]:
+          - link "CSS and JavaScript includes" [ref=e34] [cursor=pointer]:
+            - /url: "#css-and-javascript-includes"
+        - listitem [ref=e35]:
+          - link "Practicality over purity" [ref=e36] [cursor=pointer]:
+            - /url: "#practicality-over-purity"
+        - listitem [ref=e37]:
+          - link "Attribute order" [ref=e38] [cursor=pointer]:
+            - /url: "#attribute-order"
+        - listitem [ref=e39]:
+          - link "Boolean attributes" [ref=e40] [cursor=pointer]:
+            - /url: "#boolean-attributes"
+        - listitem [ref=e41]:
+          - link "Reduce markup" [ref=e42] [cursor=pointer]:
+            - /url: "#reduce-markup"
+        - listitem [ref=e43]:
+          - link "Editor preferences" [ref=e44] [cursor=pointer]:
+            - /url: "#editor-preferences"
+    - generic [ref=e45]:
+      - heading "CSS" [level=3] [ref=e46]:
+        - link "CSS" [ref=e47] [cursor=pointer]:
+          - /url: "#css"
+      - list [ref=e48]:
+        - listitem [ref=e49]:
+          - link "CSS syntax" [ref=e50] [cursor=pointer]:
+            - /url: "#css-syntax"
+        - listitem [ref=e51]:
+          - link "Declaration order" [ref=e52] [cursor=pointer]:
+            - /url: "#declaration-order"
+        - listitem [ref=e53]:
+          - link "Colors" [ref=e54] [cursor=pointer]:
+            - /url: "#colors"
+        - listitem [ref=e55]:
+          - link "Logical properties" [ref=e56] [cursor=pointer]:
+            - /url: "#logical-properties"
+        - listitem [ref=e57]:
+          - 'link "Avoid @import`s" [ref=e58] [cursor=pointer]':
+            - /url: "#avoid-imports"
+        - listitem [ref=e59]:
+          - link "Media query placement" [ref=e60] [cursor=pointer]:
+            - /url: "#media-query-placement"
+        - listitem [ref=e61]:
+          - link "Single declarations" [ref=e62] [cursor=pointer]:
+            - /url: "#single-declarations"
+        - listitem [ref=e63]:
+          - link "Shorthand notation" [ref=e64] [cursor=pointer]:
+            - /url: "#shorthand-notation"
+        - listitem [ref=e65]:
+          - link "Nesting in preprocessors" [ref=e66] [cursor=pointer]:
+            - /url: "#nesting-in-preprocessors"
+        - listitem [ref=e67]:
+          - link "Operators in preprocessors" [ref=e68] [cursor=pointer]:
+            - /url: "#operators-in-preprocessors"
+        - listitem [ref=e69]:
+          - link "Comments" [ref=e70] [cursor=pointer]:
+            - /url: "#comments"
+        - listitem [ref=e71]:
+          - link "Class names" [ref=e72] [cursor=pointer]:
+            - /url: "#class-names"
+        - listitem [ref=e73]:
+          - link "Selectors" [ref=e74] [cursor=pointer]:
+            - /url: "#selectors"
+        - listitem [ref=e75]:
+          - link "Child and descendant selectors" [ref=e76] [cursor=pointer]:
+            - /url: "#child-and-descendant-selectors"
+        - listitem [ref=e77]:
+          - link "Organization" [ref=e78] [cursor=pointer]:
+            - /url: "#organization"
+    - heading "Golden rule" [level=2] [ref=e79]
+    - paragraph [ref=e80]:
+      - text: Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what’s incorrect. For additions or contributions to this Code Guide, please
+      - link "open an issue on GitHub" [ref=e81] [cursor=pointer]:
+        - /url: https://github.com/mdo/code-guide/issues/new
+      - text: .
+    - blockquote [ref=e82]:
+      - paragraph [ref=e83]: Every line of code should appear to be written by a single person, no matter the number of contributors.
+    - heading "HTML" [level=2] [ref=e84]
+    - generic [ref=e85]:
+      - heading "Syntax" [level=3] [ref=e86]
+      - list [ref=e87]:
+        - listitem [ref=e88]: Don’t capitalize tags, including the doctype.
+        - listitem [ref=e89]: Use soft tabs with two spaces—they’re the only way to guarantee code renders the same in any environment.
+        - listitem [ref=e90]: Nested elements should be indented once (two spaces).
+        - listitem [ref=e91]: Always use double quotes, never single quotes, on attributes.
+        - listitem [ref=e92]:
+          - text: Don’t include a trailing slash in self-closing elements—the
+          - link "HTML5 spec" [ref=e93] [cursor=pointer]:
+            - /url: https://html.spec.whatwg.org/multipage/syntax.html#syntax-start-tag
+          - text: says they’re optional.
+        - listitem [ref=e94]:
+          - text: Don’t omit optional closing tags (e.g.
+          - code [ref=e95]: </li>
+          - text: or
+          - code [ref=e96]: </body>
+          - text: ).
+    - code [ref=e100]: <!doctype html> <html> <head> <title>Page title</title> </head> <body> <img src="images/company-logo.png" alt="Company"> <h1 class="hello-world">Hello, world!</h1> </body> </html>
+    - generic [ref=e101]:
+      - heading "HTML5 doctype" [level=3] [ref=e102]
+      - paragraph [ref=e103]:
+        - text: Enforce
+        - link "standards mode" [ref=e104] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode
+        - text: and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page. In keeping with the suggested syntax, keep it lowercase.
+    - code [ref=e108]: <!doctype html> <html> <head> <!-- ... --> </head> <body> <!-- ... --> </body> </html>
+    - generic [ref=e109]:
+      - heading "Language attribute" [level=3] [ref=e110]
+      - paragraph [ref=e111]: "From the HTML5 spec:"
+      - blockquote [ref=e112]:
+        - paragraph [ref=e113]: Authors are encouraged to specify a lang attribute on the root html element, giving the document’s language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.
+      - paragraph [ref=e114]:
+        - text: Read more about the
+        - code [ref=e115]: lang
+        - text: attribute
+        - link "in the spec" [ref=e116] [cursor=pointer]:
+          - /url: https://html.spec.whatwg.org/multipage/semantics.html#the-html-element
+        - text: . Head to the IANA for a
+        - link "list of language codes" [ref=e117] [cursor=pointer]:
+          - /url: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+        - text: .
+    - code [ref=e121]: <html lang="en"> <!-- ... --> </html>
+    - generic [ref=e122]:
+      - heading "IE compatibility mode" [level=3] [ref=e123]
+      - paragraph [ref=e124]:
+        - text: There’s no need to include the Internet Explorer document compatibility
+        - code [ref=e125]: <meta>
+        - text: tag these days, unless you need support for IE10 and older. The tag was dropped in IE11 and isn’t used in Microsoft Edge (legacy or otherwise).
+      - paragraph [ref=e126]:
+        - text: For more information,
+        - link "read this awesome Stack Overflow article" [ref=e127] [cursor=pointer]:
+          - /url: https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do
+        - text: .
+    - code [ref=e131]: <!-- IE10 and below only --> <meta http-equiv="x-ua-compatible" content="ie=edge">
+    - generic [ref=e132]:
+      - heading "Character encoding" [level=3] [ref=e133]
+      - paragraph [ref=e134]:
+        - text: Ensure proper content rendering by declaring an explicit character encoding. This also allows you to use regular characters instead of their HTML entities, like
+        - code [ref=e135]: —
+        - text: instead of
+        - code [ref=e136]: "&emdash;"
+        - text: ", provided their encoding matches that of the document. For some reserved XML characters—like ampersand, non-breaking spaces, less/greater than, and quotes—you may still need to use the HTML character entities."
+      - paragraph [ref=e137]: UTF-8 is the recommended encoding.
+    - code [ref=e141]: <head> <meta charset="utf-8"> </head> <body> <p>Use an em dash like so—no HTML entity required.</p> </body>
+    - generic [ref=e142]:
+      - heading "CSS and JavaScript includes" [level=3] [ref=e143]
+      - paragraph [ref=e144]:
+        - text: Per HTML5 spec, typically there is no need to specify a
+        - code [ref=e145]: type
+        - text: when including CSS and JavaScript files as
+        - code [ref=e146]: text/css
+        - text: and
+        - code [ref=e147]: text/javascript
+        - text: are their respective defaults.
+      - heading "HTML5 spec links" [level=4] [ref=e148]
+      - list [ref=e149]:
+        - listitem [ref=e150]:
+          - link "Using link" [ref=e151] [cursor=pointer]:
+            - /url: https://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element
+        - listitem [ref=e152]:
+          - link "Using style" [ref=e153] [cursor=pointer]:
+            - /url: https://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element
+        - listitem [ref=e154]:
+          - link "Using script" [ref=e155] [cursor=pointer]:
+            - /url: https://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element
+    - code [ref=e159]: <!-- External CSS --> <link rel="stylesheet" href="code-guide.css"> <!-- In-document CSS --> <style> /* ... */ </style> <!-- JavaScript --> <script src="code-guide.js"></script>
+    - generic [ref=e160]:
+      - heading "Practicality over purity" [level=3] [ref=e161]
+      - paragraph [ref=e162]: Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.
+    - code [ref=e166]: <!-- Good --> <button>...</button> <!-- Not good --> <div class="btn" onClick="...">...</div>
+    - generic [ref=e167]:
+      - heading "Attribute order" [level=3] [ref=e168]
+      - paragraph [ref=e169]: HTML attributes should come in this particular order for easier reading of code.
+      - list [ref=e170]:
+        - listitem [ref=e171]:
+          - code [ref=e172]: class
+        - listitem [ref=e173]:
+          - code [ref=e174]: id
+          - text: ","
+          - code [ref=e175]: name
+        - listitem [ref=e176]:
+          - code [ref=e177]: data-*
+        - listitem [ref=e178]:
+          - code [ref=e179]: src
+          - text: ","
+          - code [ref=e180]: for
+          - text: ","
+          - code [ref=e181]: type
+          - text: ","
+          - code [ref=e182]: href
+          - text: ","
+          - code [ref=e183]: value
+        - listitem [ref=e184]:
+          - code [ref=e185]: title
+          - text: ","
+          - code [ref=e186]: alt
+        - listitem [ref=e187]:
+          - code [ref=e188]: role
+          - text: ","
+          - code [ref=e189]: aria-*
+        - listitem [ref=e190]:
+          - code [ref=e191]: tabindex
+        - listitem [ref=e192]:
+          - code [ref=e193]: style
+      - paragraph [ref=e194]:
+        - text: Attributes that are most commonly used for identifying elements should come first—
+        - code [ref=e195]: class
+        - text: ","
+        - code [ref=e196]: id
+        - text: ","
+        - code [ref=e197]: name
+        - text: ", and"
+        - code [ref=e198]: data
+        - text: attributes. Miscellaneous attributes unique to specific elements come second, followed by accessibility and style related attributes.
+    - code [ref=e202]: <a class="..." id="..." data-toggle="modal" href="#"> Example link </a> <input class="form-control" type="text"> <img src="..." alt="...">
+    - generic [ref=e203]:
+      - heading "Boolean attributes" [level=3] [ref=e204]
+      - paragraph [ref=e205]: A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.
+      - paragraph [ref=e206]:
+        - text: For further reading, consult the
+        - link "WhatWG section on boolean attributes" [ref=e207] [cursor=pointer]:
+          - /url: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes
+      - blockquote [ref=e208]:
+        - paragraph [ref=e209]: The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.
+      - paragraph [ref=e210]:
+        - text: If you
+        - emphasis [ref=e211]: must
+        - text: include the attribute’s value, and
+        - strong [ref=e212]: you don’t need to
+        - text: ", follow this WhatWG guideline:"
+      - blockquote [ref=e213]:
+        - paragraph [ref=e214]: If the attribute is present, its value must either be the empty string or […] the attribute’s canonical name, with no leading or trailing whitespace.
+      - paragraph [ref=e215]:
+        - text: In short,
+        - strong [ref=e216]: don’t add a value
+        - text: .
+    - code [ref=e220]: <input type="text" disabled> <input type="checkbox" value="1" checked> <select> <option value="1" selected>1</option> </select>
+    - generic [ref=e221]:
+      - heading "Reduce markup" [level=3] [ref=e222]
+      - paragraph [ref=e223]: Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML.
+    - code [ref=e227]: <!-- Not so great --> <span class="avatar"> <img src="..."> </span> <!-- Better --> <img class="avatar" src="...">
+    - generic [ref=e228]:
+      - heading "Editor preferences" [level=3] [ref=e229]
+      - paragraph [ref=e230]: "Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:"
+      - list [ref=e231]:
+        - listitem [ref=e232]: Use soft-tabs set to two spaces.
+        - listitem [ref=e233]: Trim trailing white space on save.
+        - listitem [ref=e234]: Set encoding to UTF-8.
+        - listitem [ref=e235]: Add new line at end of files.
+      - paragraph [ref=e236]:
+        - text: Consider documenting and applying these preferences to your project’s
+        - code [ref=e237]: .editorconfig
+        - text: file. For an example, see
+        - link "the one in Bootstrap" [ref=e238] [cursor=pointer]:
+          - /url: https://github.com/twbs/bootstrap/blob/main/.editorconfig
+        - text: . Learn more
+        - link "about EditorConfig" [ref=e239] [cursor=pointer]:
+          - /url: https://editorconfig.org
+        - text: .
+    - heading "CSS" [level=2] [ref=e240]
+    - generic [ref=e241]:
+      - heading "Syntax" [level=3] [ref=e242]
+      - list [ref=e243]:
+        - listitem [ref=e244]: Use soft tabs with two spaces—they’re the only way to guarantee code renders the same in any environment.
+        - listitem [ref=e245]: When grouping selectors, keep individual selectors to a single line.
+        - listitem [ref=e246]: Include one space before the opening brace of declaration blocks for legibility.
+        - listitem [ref=e247]: Place closing braces of declaration blocks on a new line.
+        - listitem [ref=e248]:
+          - text: Include one space after
+          - code [ref=e249]: ":"
+          - text: for each declaration.
+        - listitem [ref=e250]: Each declaration should appear on its own line for more accurate error reporting.
+        - listitem [ref=e251]: End all declarations with a semi-colon. The last declaration’s is optional, but your code is more error prone without it.
+        - listitem [ref=e252]:
+          - text: Comma-separated property values should include a space after each comma (e.g.,
+          - code [ref=e253]: box-shadow
+          - text: ).
+        - listitem [ref=e254]:
+          - text: Use space-separated values for color properties (e.g.,
+          - code [ref=e255]: "color: rgb(0 0 0 / .5)"
+          - text: ).
+          - link "See the Colors section for more information." [ref=e256] [cursor=pointer]:
+            - /url: "#colors"
+        - listitem [ref=e257]:
+          - text: Don’t prefix property values or color parameters with a leading zero (e.g.,
+          - code [ref=e258]: ".5"
+          - text: instead of
+          - code [ref=e259]: "0.5"
+          - text: and
+          - code [ref=e260]: "-.5px"
+          - text: instead of
+          - code [ref=e261]: "-0.5px"
+          - text: ).
+        - listitem [ref=e262]:
+          - text: Lowercase all hex values, e.g.,
+          - code [ref=e263]: "#fff"
+          - text: . Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.
+        - listitem [ref=e264]:
+          - text: Use shorthand hex values where available, e.g.,
+          - code [ref=e265]: "#fff"
+          - text: instead of
+          - code [ref=e266]: "#ffffff"
+          - text: .
+        - listitem [ref=e267]:
+          - text: Quote attribute values in selectors, e.g.,
+          - code [ref=e268]: input[type="text"]
+          - text: .
+          - link "They’re only optional in some cases" [ref=e269] [cursor=pointer]:
+            - /url: https://mathiasbynens.be/notes/unquoted-attribute-values#css
+          - text: ", and it’s a good practice for consistency."
+        - listitem [ref=e270]:
+          - text: Avoid specifying units for zero values, e.g.,
+          - code [ref=e271]: "margin: 0;"
+          - text: instead of
+          - code [ref=e272]: "margin: 0px;"
+          - text: .
+      - paragraph [ref=e273]:
+        - text: Questions on the terms used here? See the
+        - link "syntax section of the Cascading Style Sheets article" [ref=e274] [cursor=pointer]:
+          - /url: https://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax
+        - text: on Wikipedia.
+    - code [ref=e278]: "// Bad CSS .selector, .selector-secondary, .selector[type=text] { padding:15px; margin:0px 0px 15px; background-color:rgba(0, 0, 0, 0.5); box-shadow:0px 1px 2px #CCC,inset 0 1px 0 #FFFFFF } // Good CSS .selector, .selector-secondary, .selector[type=\"text\"] { padding: 15px; margin-bottom: 15px; background-color: rgb(0 0 0 / .5); box-shadow: 0 1px 2px #ccc, inset 0 1px 0 #fff; }"
+    - generic [ref=e279]:
+      - heading "Declaration order" [level=3] [ref=e280]
+      - paragraph [ref=e281]: "Property declarations should be grouped together in the following order:"
+      - list [ref=e282]:
+        - listitem [ref=e283]: Positioning
+        - listitem [ref=e284]: Box model
+        - listitem [ref=e285]: Typographic
+        - listitem [ref=e286]: Visual
+        - listitem [ref=e287]: Misc
+      - paragraph [ref=e288]:
+        - text: Positioning comes first because it can remove an element from the normal document flow and override box model related styles. The box model—whether it’s flex, float, grid, or table—follows as it dictates a component’s dimensions, placement, and alignment. Everything else takes place
+        - emphasis [ref=e289]: inside
+        - text: the component or without impacting the previous two sections, and thus they come last.
+      - paragraph [ref=e290]:
+        - text: While
+        - code [ref=e291]: border
+        - text: is part of the box model, most systems globally reset the
+        - link "box-sizing" [ref=e292] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+          - code [ref=e293]: box-sizing
+        - text: to
+        - code [ref=e294]: border-box
+        - text: so that
+        - code [ref=e295]: border-width
+        - text: doesn’t affect overall dimensions. This, combined with keeping
+        - code [ref=e296]: border
+        - text: near
+        - code [ref=e297]: border-radius
+        - text: ", is why it’s under the Visual section instead."
+      - paragraph [ref=e298]:
+        - text: Preprocessor mixins and functions should appear wherever most appropriate. For example, a
+        - code [ref=e299]: border-top-radius()
+        - text: mixin would go in place of
+        - code [ref=e300]: border-radius
+        - text: properties, while a
+        - code [ref=e301]: responsive-font-size()
+        - text: function would go in place of
+        - code [ref=e302]: font-size
+        - text: properties.
+      - paragraph [ref=e303]:
+        - text: For a complete list of properties and their order, please see the
+        - link "property order for Stylelint" [ref=e304] [cursor=pointer]:
+          - /url: https://github.com/stormwarning/stylelint-config-recess-order
+        - text: used by
+        - link "Bootstrap" [ref=e305] [cursor=pointer]:
+          - /url: https://getbootstrap.com
+        - text: .
+    - code [ref=e309]: ".declaration-order { // Positioning position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 100; // Box model display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100px; height: 100px; // Typography font: normal 14px \"Helvetica Neue\", sans-serif; line-height: 1.5; color: #333; text-align: center; text-decoration: underline; // Visual background-color: #f5f5f5; border: 1px solid #e5e5e5; border-radius: 3px; // Misc opacity: 1; }"
+    - generic [ref=e310]:
+      - heading "Logical properties" [level=3] [ref=e311]
+      - paragraph [ref=e312]:
+        - text: Logical properties are alternatives to directional and dimensonal properties based on abstract terms like
+        - emphasis [ref=e313]: block
+        - text: and
+        - emphasis [ref=e314]: inline
+        - text: . By default, block refers to the vertical direction (top and bottom) while inline refers to the horizontal direction (right and left). You can begin to use these values in your CSS in all modern, evergreen browsers.
+      - paragraph [ref=e315]:
+        - strong [ref=e316]: Why use logical properties?
+        - text: Not every language flows left-ro-right like English, so the
+        - link "writing mode" [ref=e317] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
+        - text: needs to be flexible. With logical properties, you can easily support languages that can be written horizontally or vertically (like Chinese, Japanese, and Korean). Plus, they’re usually shorter and simpler to write.
+      - paragraph [ref=e318]:
+        - strong [ref=e319]: "Additional reading:"
+      - list [ref=e320]:
+        - listitem [ref=e321]:
+          - link "CSS Logical Properties and Values – MDN" [ref=e322] [cursor=pointer]:
+            - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
+        - listitem [ref=e323]:
+          - link "CSS Logical Properties and Values — CSS Tricks" [ref=e324] [cursor=pointer]:
+            - /url: https://css-tricks.com/css-logical-properties-and-values/
+        - listitem [ref=e325]:
+          - link "CSS Writing Modes – MDN" [ref=e326] [cursor=pointer]:
+            - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes
+    - code [ref=e330]: "// Without logical properties .element { margin-right: auto; margin-left: auto; border-top: 1px solid #eee; border-bottom: 1px solid #eee; } // With logical properties .element { margin-inline: auto; border-block: 1px solid #eee; }"
+    - generic [ref=e331]:
+      - heading "Colors" [level=3] [ref=e332]
+      - paragraph [ref=e333]:
+        - text: With the support of
+        - link "CSS Color Levels 4" [ref=e334] [cursor=pointer]:
+          - /url: https://www.w3.org/TR/css-color-4/
+        - link "in all major browsers" [ref=e335] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb#space-separated_values
+        - text: ","
+        - code [ref=e336]: rgba()
+        - text: and
+        - code [ref=e337]: hsla()
+        - text: are now aliases for
+        - code [ref=e338]: rgb()
+        - text: and
+        - code [ref=e339]: hsl()
+        - text: ", meaning you can modify alpha values in"
+        - code [ref=e340]: rgb()
+        - text: and
+        - code [ref=e341]: hsl()
+        - text: . Along with this comes support for new space-separated syntax for color values. For compability with future CSS color functions, use this new syntax.
+      - paragraph [ref=e342]:
+        - text: Regardless of your color values and syntax, always ensure your color choices meet
+        - link "WCAG minimum contrast ratios" [ref=e343] [cursor=pointer]:
+          - /url: https://webaim.org/articles/contrast/
+        - text: (4.5:1 for 16px and smaller, 3:1 for larger).
+      - paragraph [ref=e344]:
+        - strong [ref=e345]: "Additional reading:"
+      - list [ref=e346]:
+        - listitem [ref=e347]:
+          - link "Smashing Magazine - A Guide To Modern CSS Colors" [ref=e348] [cursor=pointer]:
+            - /url: https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/
+        - listitem [ref=e349]:
+          - link "rgb() - MDN" [ref=e350] [cursor=pointer]:
+            - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb
+            - code [ref=e351]: rgb()
+            - text: "- MDN"
+    - code [ref=e355]: ".element { color: rgb(255 255 255 / .65); background-color: rgb(0 0 0 / .95); }"
+    - generic [ref=e356]:
+      - heading "Avoid @imports" [level=3] [ref=e357]:
+        - text: Avoid
+        - code [ref=e358]: "@import"
+        - text: s
+      - paragraph [ref=e359]:
+        - text: Compared to
+        - code [ref=e360]: <link>
+        - text: s,
+        - code [ref=e361]: "@import"
+        - text: "is slower, adds extra page requests, and can cause other unforeseen problems. Avoid them and instead opt for an alternate approach:"
+      - list [ref=e362]:
+        - listitem [ref=e363]:
+          - text: Use multiple
+          - code [ref=e364]: <link>
+          - text: elements
+        - listitem [ref=e365]:
+          - text: Compile your CSS with a preprocessor like
+          - link "Sass" [ref=e366] [cursor=pointer]:
+            - /url: https://sass-lang.com/
+          - text: or
+          - link "Less" [ref=e367] [cursor=pointer]:
+            - /url: https://lesscss.org/
+          - text: into a single file
+        - listitem [ref=e368]: Concatenate your CSS files with features provided in Rails, Jekyll, and other environments
+      - paragraph [ref=e369]:
+        - text: For more information,
+        - link "read this article by Steve Souders" [ref=e370] [cursor=pointer]:
+          - /url: https://www.stevesouders.com/blog/2009/04/09/dont-use-import/
+        - text: .
+    - code [ref=e374]: <!-- Use link elements --> <link rel="stylesheet" href="core.css"> <!-- Avoid @imports --> <style> @import url("more.css"); </style>
+    - generic [ref=e375]:
+      - heading "Media query placement" [level=3] [ref=e376]
+      - paragraph [ref=e377]: Place media queries as close to their relevant rule sets whenever possible. Don’t bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here’s a typical setup.
+    - code [ref=e381]: ".element { ... } .element-avatar { ... } .element-selected { ... } @media (min-width: 480px) { .element { ... } .element-avatar { ... } .element-selected { ... } }"
+    - generic [ref=e382]:
+      - heading "Single declarations" [level=3] [ref=e383]
+      - paragraph [ref=e384]:
+        - text: In instances where a rule set includes
+        - strong [ref=e385]: only one declaration
+        - text: ", consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines."
+      - paragraph [ref=e386]: The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there’s no missing it. With multiple declarations, separate lines is a must for your sanity.
+    - code [ref=e390]: "// Single declarations on one line .span1 { width: 60px; } .span2 { width: 140px; } .span3 { width: 220px; } // Multiple declarations, one per line .sprite { display: inline-block; width: 16px; height: 15px; background-image: url(\"../img/sprite.png\"); } .icon { background-position: 0 0; } .icon-home { background-position: 0 -20px; } .icon-account { background-position: 0 -40px; }"
+    - generic [ref=e391]:
+      - heading "Shorthand notation" [level=3] [ref=e392]
+      - paragraph [ref=e393]: "Limit shorthand declaration usage to instances where you must explicitly set all available values. Frequently overused shorthand properties include:"
+      - list [ref=e394]:
+        - listitem [ref=e395]:
+          - code [ref=e396]: padding
+        - listitem [ref=e397]:
+          - code [ref=e398]: margin
+        - listitem [ref=e399]:
+          - code [ref=e400]: font
+        - listitem [ref=e401]:
+          - code [ref=e402]: background
+        - listitem [ref=e403]:
+          - code [ref=e404]: border
+        - listitem [ref=e405]:
+          - code [ref=e406]: border-radius
+      - paragraph [ref=e407]:
+        - text: Usually we don’t need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. A
+        - code [ref=e408]: "0"
+        - text: value implies an override of either a browser default or previously specified value.
+      - paragraph [ref=e409]: Excessive use of shorthand properties leads to sloppier code with unnecessary overrides and unintended side effects.
+      - paragraph [ref=e410]:
+        - text: The Mozilla Developer Network has a great article on
+        - link "shorthand properties" [ref=e411] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties
+        - text: for those unfamiliar with notation and behavior.
+    - code [ref=e415]: "// Bad example .element { margin: 0 0 10px; background: red; background: url(\"image.jpg\"); border-radius: 3px 3px 0 0; } // Good example .element { margin-bottom: 10px; background-color: red; background-image: url(\"image.jpg\"); border-top-left-radius: 3px; border-top-right-radius: 3px; }"
+    - generic [ref=e416]:
+      - heading "Nesting in preprocessors" [level=3] [ref=e417]
+      - paragraph [ref=e418]: Avoid unnecessary nesting in preprocessors whenever possible—keep it simple and avoid reverse nesting. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.
+      - paragraph [ref=e419]:
+        - strong [ref=e420]: "Additional reading:"
+      - list [ref=e421]:
+        - listitem [ref=e422]:
+          - link "Nesting in Sass and Less" [ref=e423] [cursor=pointer]:
+            - /url: https://markdotto.com/2015/07/20/css-nesting/
+    - code [ref=e427]: "// Without nesting .table > thead > tr > th { … } .table > thead > tr > td { … } // With nesting .table > thead > tr { > th { … } > td { … } }"
+    - generic [ref=e428]:
+      - heading "Operators in preprocessors" [level=3] [ref=e429]
+      - paragraph [ref=e430]: For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.
+    - code [ref=e434]: "// Bad example .element { margin: 10px 0 @variable*2 10px; } // Good example .element { margin: 10px 0 (@variable * 2) 10px; }"
+    - generic [ref=e435]:
+      - heading "Comments" [level=3] [ref=e436]
+      - paragraph [ref=e437]:
+        - text: Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name. Use the
+        - code [ref=e438]: //
+        - text: syntax when writing CSS with preprocessors. When shipping CSS to production, remove all comments.
+      - paragraph [ref=e439]: Be sure to write in complete sentences for larger comments and succinct phrases for general notes.
+    - code [ref=e443]: "// Bad example // Modal header .modal-header { ... } // Good example // Wrapping element for .modal-title and .modal-close .modal-header { ... }"
+    - generic [ref=e444]:
+      - heading "Class names" [level=3] [ref=e445]
+      - list [ref=e446]:
+        - listitem [ref=e447]:
+          - text: Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g.,
+          - code [ref=e448]: .btn
+          - text: and
+          - code [ref=e449]: .btn-danger
+          - text: ).
+        - listitem [ref=e450]:
+          - text: Avoid excessive and arbitrary shorthand notation.
+          - code [ref=e451]: .btn
+          - text: is useful for
+          - emphasis [ref=e452]: button
+          - text: ", but"
+          - code [ref=e453]: .s
+          - text: doesn’t mean anything.
+        - listitem [ref=e454]: Keep classes as short and succinct as possible.
+        - listitem [ref=e455]: Use meaningful names; use structural or purposeful names over presentational.
+        - listitem [ref=e456]: Prefix classes based on the closest parent or base class.
+        - listitem [ref=e457]:
+          - text: Use
+          - code [ref=e458]: .js-*
+          - text: classes to denote behavior (as opposed to style), but keep these classes out of your CSS.
+      - paragraph [ref=e459]: It’s also useful to apply many of these same rules when creating custom properties and preprocessor variable names.
+    - code [ref=e463]: "// Bad example .t { ... } .red { ... } .header { ... } // Good example .tweet { ... } .important { ... } .tweet-header { ... }"
+    - generic [ref=e464]:
+      - heading "Selectors" [level=3] [ref=e465]
+      - list [ref=e466]:
+        - listitem [ref=e467]: Use classes over generic element tags for more explicit and reliable styling that isn’t dependent on your markup.
+        - listitem [ref=e468]:
+          - text: Avoid using several attribute selectors (e.g.,
+          - code [ref=e469]: "[class^=\"...\"]"
+          - text: ) on commonly occuring components. Browser performance is known to be impacted by these.
+        - listitem [ref=e470]: Keep selectors short and strive to limit the number of elements in each selector to three.
+        - listitem [ref=e471]:
+          - text: Scope classes to the closest parent
+          - code [ref=e472]: only
+          - text: when necessary (e.g., when not using prefixed classes).
+      - paragraph [ref=e473]:
+        - strong [ref=e474]: "Additional reading:"
+      - list [ref=e475]:
+        - listitem [ref=e476]:
+          - link "Scope CSS classes with prefixes" [ref=e477] [cursor=pointer]:
+            - /url: https://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/
+        - listitem [ref=e478]:
+          - link "Stop the cascade" [ref=e479] [cursor=pointer]:
+            - /url: https://markdotto.com/2012/03/02/stop-the-cascade/
+    - code [ref=e483]: "// Bad example span { ... } .page-container #stream .stream-item .tweet .tweet-header .username { ... } .avatar { ... } // Good example .avatar { ... } .tweet-header .username { ... } .tweet .avatar { ... }"
+    - generic [ref=e484]:
+      - heading "Child and descendant selectors" [level=3] [ref=e485]
+      - paragraph [ref=e486]:
+        - text: When necessary, it may be helpful to use
+        - link "the child combinator (>)" [ref=e487] [cursor=pointer]:
+          - /url: https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator
+          - text: the child combinator (
+          - code [ref=e488]: ">"
+          - text: )
+        - text: to limit the cascade of some styles in elements like
+        - code [ref=e489]: <table>
+        - text: s that are often recursively nested. Use it to limit styles to the immediate children elements of a parent element to avoid unnecessary overrides later on.
+    - code [ref=e493]: ".custom-table > tbody > tr > td, .custom-table > tbody > tr > th { /* ... */ }"
+    - generic [ref=e494]:
+      - heading "Organization" [level=3] [ref=e495]
+      - list [ref=e496]:
+        - listitem [ref=e497]: Organize sections of code by component.
+        - listitem [ref=e498]: Develop a consistent commenting hierarchy.
+        - listitem [ref=e499]: Use consistent white space to your advantage when separating sections of code for scanning larger documents.
+        - listitem [ref=e500]: When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.
+    - code [ref=e504]: "// // Component section heading // .element { ... } // // Component section heading // // Sometimes you need to include optional context for the entire component. Do that up here if it's important enough. // .element { ... } // Contextual sub-component or modifer .element-heading { ... }"
+    - generic [ref=e505]:
+      - paragraph [ref=e506]:
+        - text: Open sourced by
+        - link "@mdo" [ref=e507] [cursor=pointer]:
+          - /url: https://twitter.com/mdo
+        - text: under MIT license. Copyright 2025.
+      - list [ref=e508]:
+        - listitem [ref=e509]:
+          - iframe [ref=e510]:
+            - link "Star mdo/code-guide on GitHub" [ref=f1e1] [cursor=pointer]:
+              - /url: https://github.com/mdo/code-guide
+              - text: Star
+        - listitem [ref=e511]:
+          - iframe [ref=e512]:
+            - link "Fork mdo/code-guide on GitHub" [ref=f2e1] [cursor=pointer]:
+              - /url: https://github.com/mdo/code-guide/fork
+              - text: Fork
+      - list [ref=e513]:
+        - listitem [ref=e514]:
+          - iframe [ref=e515]:
+            - link "Follow @mdo" [ref=f4e4] [cursor=pointer]:
+              - /url: https://twitter.com/intent/follow?original_referer=http%3A%2F%2F127.0.0.1%3A4000%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5Emdo&region=follow_link&screen_name=mdo
+              - generic [ref=f4e6]: Follow @mdo
+        - listitem [ref=e516]:
+          - iframe [ref=e517]:
+            - link "Post" [ref=f5e4] [cursor=pointer]:
+              - /url: https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F127.0.0.1%3A4000%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Code%20Guide%20by%20%40mdo&url=http%3A%2F%2Flocalhost%3A4000&via=mdo
+              - generic [ref=f5e6]: Post
+```
