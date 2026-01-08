@@ -116,7 +116,7 @@ test.describe('Blog Post Navigation', () => {
     await expect(nav).toBeVisible();
 
     // Look for common navigation links
-    const homeLink = page.locator('a[href="/"], a[href="' + page.url() + '"]').first();
+    const homeLink = page.locator('a[href="/"]').first();
     if (await homeLink.count() > 0) {
       await expect(homeLink).toBeVisible();
     }
@@ -125,7 +125,7 @@ test.describe('Blog Post Navigation', () => {
     const tagsLink = page.locator('a[href*="tags"]').first();
     if (await tagsLink.count() > 0) {
       await tagsLink.click();
-      await expect(page).toHaveURL(/\/tags/);
+      await expect(page).toHaveURL(/tags/);
     }
   });
 
@@ -137,7 +137,7 @@ test.describe('Blog Post Navigation', () => {
 
     if (await aboutLink.count() > 0) {
       await aboutLink.click();
-      await expect(page).toHaveURL(/\/about/);
+      await expect(page).toHaveURL(/about/);
 
       // Check for about content
       const content = await page.textContent('body');
@@ -211,7 +211,9 @@ test.describe('Blog Post Navigation', () => {
 
     // Note: Scroll position restoration is browser-dependent,
     // so we just verify we're back on the homepage
-    await expect(page).toHaveURL('/');
+    // URL should match the base URL pattern
+    const currentUrl = page.url();
+    expect(currentUrl).toMatch(/\/$/);
   });
 
   test('should show post metadata in post view', async ({ page }) => {

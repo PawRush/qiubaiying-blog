@@ -1,6 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
+// Skip Gitalk tests when running against remote URL (GitHub OAuth won't work)
+const isRemote = process.env.BASE_URL && !process.env.BASE_URL.includes('localhost') && !process.env.BASE_URL.includes('127.0.0.1');
+
 test.describe('Gitalk Comment System', () => {
+  test.skip(isRemote, 'Gitalk tests require GitHub OAuth and only work locally');
   test('should load Gitalk on blog post page', async ({ page }) => {
     await page.goto('/');
 
