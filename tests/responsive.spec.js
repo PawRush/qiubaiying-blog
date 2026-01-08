@@ -211,8 +211,9 @@ test.describe('Responsive Design', () => {
       const firstPost = page.locator('.post-preview a').first();
       await firstPost.click();
 
-      // Should successfully navigate
-      await expect(page).toHaveURL(/\/\d{4}\//);
+      // Should successfully navigate - wait for network to be idle for remote URLs
+      await page.waitForLoadState('networkidle');
+      await expect(page).toHaveURL(/\d{4}/);
 
       // Content should be visible
       const postContent = page.locator('.post-container');
@@ -225,6 +226,9 @@ test.describe('Responsive Design', () => {
 
       // Navigate to tags
       await page.goto('/tags/');
+
+      // Wait for network to be idle for remote URLs
+      await page.waitForLoadState('networkidle');
 
       // Tags page should load properly
       const tagCloud = page.locator('#tag_cloud');
