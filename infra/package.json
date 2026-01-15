@@ -13,7 +13,9 @@
     "deploy:preview": "cdk deploy --all --require-approval never --progress events",
     "destroy": "cdk destroy --all",
     "synth": "cdk synth",
-    "diff": "cdk diff"
+    "diff": "cdk diff",
+    "deploy:pipeline": "cdk deploy QiubaiUIPipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:492267476755:connection/b723259a-c57f-4245-9416-a59676b72429 --context repositoryName=PawRush/qiubaiying-blog --context branchName=deploy-to-aws --require-approval never --progress events",
+    "destroy:pipeline": "cdk destroy QiubaiUIPipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:492267476755:connection/b723259a-c57f-4245-9416-a59676b72429"
   },
   "devDependencies": {
     "@types/jest": "^30",
