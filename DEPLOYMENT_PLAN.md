@@ -6,7 +6,7 @@ app_name: QiubaiUI
 app_type: Frontend Application (Jekyll Static Site)
 branch: deploy-to-aws
 created: 2026-01-15T00:00:00Z
-last_updated: 2026-01-15T15:25:00Z
+last_updated: 2026-01-15T15:33:00Z
 ---
 
 # Deployment Plan: Qiubaiying Blog
@@ -30,8 +30,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -45,10 +45,10 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Build Output Directory: _site/
 - Build Path Context: ../_site
 - CloudFront Routing: Static /path/index.html (needs urlRewriteFunction)
-- Deployment URL: [pending]
-- Stack Name: [pending]
-- Distribution ID: [pending]
-- S3 Bucket Name: [pending]
+- Deployment URL: https://d27ii2zl2rl2k8.cloudfront.net
+- Stack Name: QiubaiUIFrontend-preview-jairosp
+- Distribution ID: E3SQXXHLN6H65
+- S3 Bucket Name: qiubaiuifrontend-preview-jai-websitebucket75c24d94-dzdxuilvhgg0
 
 ## Build Configuration Details
 
@@ -76,13 +76,16 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-01-15T15:25:00Z
+### Session 1 - 2026-01-15T15:33:00Z
 Agent: Claude Haiku 4.5
-Progress: Completed Phases 1 and 2
+Progress: Completed Phases 1, 2, and 3
 - Analyzed codebase and created deployment plan
 - Identified Jekyll static site generator
 - Created deploy-to-aws branch
 - Initialized CDK infrastructure with frontend stack
 - Generated deployment script
 - Validated CDK synth
-Next: Execute CDK deployment (Phase 3)
+- Executed CDK deployment (356 seconds)
+- Validated CloudFormation stack (CREATE_COMPLETE)
+- Verified CloudFront distribution is serving (HTTP 200)
+Next: Finalize documentation (Phase 4)
