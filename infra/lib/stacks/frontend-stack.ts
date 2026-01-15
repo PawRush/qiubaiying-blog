@@ -1,7 +1,8 @@
 import * as cdk from "aws-cdk-lib";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
+import * as s3 from "aws-cdk-lib/aws-s3";
 import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
-import { CloudFrontToS3 } from "@aws-solutions-constructs/aws-cloudfront-s3";
+import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
 import { Construct } from "constructs";
 
 export interface FrontendStackProps extends cdk.StackProps {
@@ -20,41 +21,32 @@ export class FrontendStack extends cdk.Stack {
     const isProd = environment === "prod";
     const removalPolicy = isProd ? cdk.RemovalPolicy.RETAIN : cdk.RemovalPolicy.DESTROY;
 
-    const cloudfrontToS3 = new CloudFrontToS3(this, "CFToS3", {
-      bucketProps: {
-        removalPolicy,
-        autoDeleteObjects: !isProd,
-        versioned: false,
-        enforceSSL: true,
-      },
-      loggingBucketProps: {
-        removalPolicy,
-        autoDeleteObjects: !isProd,
-        lifecycleRules: [
-          {
-            id: "DeleteOldLogs",
-            enabled: true,
-            expiration: isProd ? cdk.Duration.days(3650) : cdk.Duration.days(7),
-          },
-        ],
-        enforceSSL: true,
-      },
-      cloudFrontLoggingBucketProps: {
-        removalPolicy,
-        autoDeleteObjects: !isProd,
-        lifecycleRules: [
-          {
-            id: "DeleteOldLogs",
-            enabled: true,
-            expiration: isProd ? cdk.Duration.days(3650) : cdk.Duration.days(7),
-          },
-        ],
-        enforceSSL: true,
-      },
-      insertHttpSecurityHeaders: true,
+    // Create S3 bucket for website
+    const websiteBucket = new s3.Bucket(this, "WebsiteBucket", {
+      removalPolicy,
+      autoDeleteObjects: !isProd,
+      versioned: false,
+      enforceSSL: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
     });
 
-    // URL rewrite function for Jekyll static /path/index.html routing
+    // Create logging bucket
+    const loggingBucket = new s3.Bucket(this, "LoggingBucket", {
+      removalPolicy,
+      autoDeleteObjects: !isProd,
+      enforceSSL: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+    });
+
+    // Create CloudFront logging bucket
+    new s3.Bucket(this, "CloudFrontLoggingBucket", {
+      removalPolicy,
+      autoDeleteObjects: !isProd,
+      enforceSSL: true,
+      blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+    });
+
+    // Create CloudFront function for URL rewriting
     const urlRewriteFunction = new cloudfront.Function(this, "UrlRewriteFunction", {
       runtime: cloudfront.FunctionRuntime.JS_2_0,
       code: cloudfront.FunctionCode.fromInline(`
@@ -71,38 +63,28 @@ export class FrontendStack extends cdk.Stack {
       comment: "Rewrites /path to /path/index.html for Jekyll static site",
     });
 
-    const websiteBucket = cloudfrontToS3.s3Bucket!;
-    const distribution = cloudfrontToS3.cloudFrontWebDistribution;
-
-    // Override distribution configuration for static multi-page site
-    const cfnDistribution = distribution.node.defaultChild as cdk.aws_cloudfront.CfnDistribution;
-    const distributionConfig = cfnDistribution.distributionConfig;
-
-    if (distributionConfig) {
-      distributionConfig.defaultCacheBehavior = {
-        ...distributionConfig.defaultCacheBehavior,
+    // Create CloudFront distribution
+    const distribution = new cloudfront.Distribution(this, "Distribution", {
+      defaultBehavior: {
+        origin: new origins.S3Origin(websiteBucket),
+        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         functionAssociations: [
           {
-            eventType: "viewer-request",
-            functionArn: urlRewriteFunction.functionArn,
+            function: urlRewriteFunction,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
           },
         ],
-      };
+      },
+      defaultRootObject: "index.html",
+      enabled: true,
+      comment: `Frontend distribution - ${environment}`,
+      priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
+      enableIpv6: true,
+      httpVersion: cloudfront.HttpVersion.HTTP2_AND_3,
+      minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+    });
 
-      // Remove error responses for static multi-page site
-      distributionConfig.cacheBehaviors = (distributionConfig.cacheBehaviors || []).map((behavior) => ({
-        ...behavior,
-        functionAssociations: [
-          {
-            eventType: "viewer-request",
-            functionArn: urlRewriteFunction.functionArn,
-          },
-        ],
-      }));
-
-      distributionConfig.defaultRootObject = "index.html";
-    }
-
+    // Deploy website content
     new s3deploy.BucketDeployment(this, "DeployWebsite", {
       sources: [s3deploy.Source.asset(buildOutputPath)],
       destinationBucket: websiteBucket,
@@ -140,25 +122,7 @@ export class FrontendStack extends cdk.Stack {
       exportName: `${id}-DistributionDomain`,
     });
 
-    if (cloudfrontToS3.s3LoggingBucket) {
-      new cdk.CfnOutput(this, "S3LogBucketName", {
-        value: cloudfrontToS3.s3LoggingBucket.bucketName,
-        description: "Bucket for S3 access logs",
-        exportName: `${id}-S3LogBucket`,
-      });
-    }
-
-    if (cloudfrontToS3.cloudFrontLoggingBucket) {
-      new cdk.CfnOutput(this, "CloudFrontLogBucketName", {
-        value: cloudfrontToS3.cloudFrontLoggingBucket.bucketName,
-        description: "Bucket for CloudFront access logs",
-        exportName: `${id}-CloudFrontLogBucket`,
-      });
-    }
-
     cdk.Tags.of(this).add("Stack", "Frontend");
     cdk.Tags.of(this).add("aws-mcp:deploy:sop", "deploy-frontend-app");
-    cdk.Tags.of(cloudfrontToS3).add("Stack", "Frontend");
-    cdk.Tags.of(cloudfrontToS3).add("aws-mcp:deploy:sop", "deploy-frontend-app");
   }
 }
