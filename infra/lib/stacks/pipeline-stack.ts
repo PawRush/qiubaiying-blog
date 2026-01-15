@@ -31,6 +31,7 @@ export class PipelineStack extends cdk.Stack {
       commands: [
         "npm install",
         "(cd infra && npm install)",
+        "bundle install",
         "npm run build",
         "cd infra",
         "npm run build",
