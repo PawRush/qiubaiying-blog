@@ -25,6 +25,16 @@ Deployment command: `./scripts/deploy.sh`
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
 
+## Pipeline
+
+Automated CI/CD Pipeline via AWS CodePipeline. Changes pushed to `deploy-to-aws` branch automatically build and deploy.
+
+Pipeline URL: https://console.aws.amazon.com/codesuite/codepipeline/pipelines/QiubaiUIPipeline/view
+
+Trigger: `git push origin deploy-to-aws`
+
+See [PIPELINE_DEPLOYMENT_PLAN.md](./PIPELINE_DEPLOYMENT_PLAN.md) for pipeline details. Created with the [setup-codepipeline](./PIPELINE_DEPLOYMENT_PLAN.md) Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
 
 
 ## 使用
